@@ -1,13 +1,13 @@
-import dotenv from "dotenv";
+//import dotenv from "dotenv";
 import connectDb from "./db/index.js";
 import app from "./app.js";
 
 
 //temp
 
-dotenv.config({
-    path:"./.env"
-})
+// dotenv.config({
+//     path:"./.env"
+// })
 
 
 connectDb()
