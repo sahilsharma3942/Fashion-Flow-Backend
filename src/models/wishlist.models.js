@@ -13,8 +13,7 @@ const wishlistSchema = new mongoose.Schema({
             required:true
         }
     }]
-},{timestamps : true,
-    _id: false 
+},{timestamps : true
 })
 const Wishlist = new mongoose.model("Wishlist",wishlistSchema);
 
