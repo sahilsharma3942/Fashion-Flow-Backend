@@ -76,7 +76,7 @@ const userSignin = asyncHandler(async (req,res)=>{
     if(!result.success){
         res.status(400).json({
             message:"Invalid input",
-            error:error.erros
+            error:result.error.errors
         })
     }
     const user = await User.findOne({
