@@ -2,12 +2,13 @@ import mongoose from "mongoose";
 import Product from "./models/product.models.js";
 import Category from "./models/category.models.js";
 import { faker } from '@faker-js/faker';
+import connectDb from "./db/index.js";
 
 
 export const seedDatabase =async () => {
     try {
         // Connect to the database
-        
+        connectDb();
         await Category.deleteMany({});
         await Product.deleteMany({});
 
