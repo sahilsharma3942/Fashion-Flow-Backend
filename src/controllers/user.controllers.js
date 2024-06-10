@@ -24,6 +24,7 @@ const userSignup = asyncHandler(async (req,res)=>{
     const result = signupSchema.safeParse(body);
     //if validation fails return error
     if (!result.success) {
+        
         return res.status(400).json({
             message: "Invalid Input",
             errors: result.error.errors  // Detailed Zod errors
@@ -139,7 +140,7 @@ const updateSchema = zod.object({
     firstName:zod.string().optional(),
     lastName:zod.string().optional()
 })
-const updateLoggedInUser = asyncHandler(async(req,res,next)=>{
+const updateLoggedInUser = asyncHandler(async(req,res)=>{
     const userId = req.userId;
     const {success} = updateSchema.safeParse(req.body);
     if(!success){
@@ -231,7 +232,7 @@ const addToWishList = asyncHandler(async(req,res)=>{
     wishlist.products.push({product:productId});
     await wishlist.save();
 
-    res.status(200).json(wishlist);
+    res.status(200).json({wishlist:wishlist});
 })
 
 

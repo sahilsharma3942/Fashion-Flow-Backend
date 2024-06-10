@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 const auth = (req,res,next)=>{
     const authHeader = req.headers.authorization;
     if(!authHeader){
-        res.status(403).json({
+        return res.status(403).json({
             message:"SignIn to continue"
         })
     }
